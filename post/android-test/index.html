@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Code &amp; Chord</title>
+<title>Android Test | Code &amp; Chord</title>
 <link rel="shortcut icon" href="https://liziyang625.github.io/favicon.ico?v=1559035954075">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -80,22 +80,96 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              Android Test
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-01-25 ·
+                · 2019-05-28 ·
               </time>
               
             </div>
             
             <div class="post-content">
-              <p>这是关于的页面，可以在这里向世界介绍你！</p>
+              <p>This is a test.</p>
+<pre><code class="language-java">public class WinningPrize {
+
+    /**
+     * 单次中奖概率
+     */
+    private double winningProbability;
+
+    /**
+     * 一轮游戏连续玩几次
+     */
+    private int playTimes;
+
+    /**
+     * 多少轮
+     */
+    private int N;
+
+    private int winCount;
+
+
+    public WinningPrize(double winningProbability, int playTimes, int n) {
+        this.winningProbability = winningProbability;
+        this.playTimes = playTimes;
+        N = n;
+    }
+
+
+    public void run() {
+        for (int i = 0; i &lt; N; i++) {
+            // N轮游戏
+            if (play()) {
+                winCount++;
+            }
+        }
+
+        System.out.println(&quot;winning rate : &quot; + (double) winCount / N);
+    }
+
+    /**
+     * 一轮游戏
+     * playTimes次
+     */
+    private boolean play() {
+        for (int i = 0; i &lt; playTimes; i++) {
+            // 随机数，如果比winningProbability小，认为赢了
+            if (Math.random() &lt; winningProbability) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    public static void main(String[] args) {
+
+        double winningProbability = 0.2;
+        int playTimes = 5;
+        int N = (int) 1e8;
+
+        WinningPrize winningPrize = new WinningPrize(winningProbability, playTimes, N);
+        winningPrize.run();
+    }
+}
+</code></pre>
 
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://liziyang625.github.io/post/hello-gridea">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
         
 
         

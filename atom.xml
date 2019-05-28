@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liziyang625.github.io</id>
     <title>Code &amp; Chord</title>
-    <updated>2019-05-28T09:16:39.080Z</updated>
+    <updated>2019-05-28T09:32:35.986Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liziyang625.github.io"/>
     <link rel="self" href="https://liziyang625.github.io/atom.xml"/>
@@ -10,6 +10,80 @@
     <logo>https://liziyang625.github.io/images/avatar.png</logo>
     <icon>https://liziyang625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Code &amp; Chord</rights>
+    <entry>
+        <title type="html"><![CDATA[Android Test]]></title>
+        <id>https://liziyang625.github.io/post/android-test</id>
+        <link href="https://liziyang625.github.io/post/android-test">
+        </link>
+        <updated>2019-05-28T09:30:39.000Z</updated>
+        <content type="html"><![CDATA[<p>This is a test.</p>
+<pre><code class="language-java">public class WinningPrize {
+
+    /**
+     * 单次中奖概率
+     */
+    private double winningProbability;
+
+    /**
+     * 一轮游戏连续玩几次
+     */
+    private int playTimes;
+
+    /**
+     * 多少轮
+     */
+    private int N;
+
+    private int winCount;
+
+
+    public WinningPrize(double winningProbability, int playTimes, int n) {
+        this.winningProbability = winningProbability;
+        this.playTimes = playTimes;
+        N = n;
+    }
+
+
+    public void run() {
+        for (int i = 0; i &lt; N; i++) {
+            // N轮游戏
+            if (play()) {
+                winCount++;
+            }
+        }
+
+        System.out.println(&quot;winning rate : &quot; + (double) winCount / N);
+    }
+
+    /**
+     * 一轮游戏
+     * playTimes次
+     */
+    private boolean play() {
+        for (int i = 0; i &lt; playTimes; i++) {
+            // 随机数，如果比winningProbability小，认为赢了
+            if (Math.random() &lt; winningProbability) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    public static void main(String[] args) {
+
+        double winningProbability = 0.2;
+        int playTimes = 5;
+        int N = (int) 1e8;
+
+        WinningPrize winningPrize = new WinningPrize(winningProbability, playTimes, N);
+        winningPrize.run();
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://liziyang625.github.io/post/hello-gridea</id>
